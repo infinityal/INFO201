@@ -1,0 +1,86 @@
+---
+title: "summary of the shooting data in 2018"
+author: "Zhijian Zheng"
+date: "11/10/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(dplyr)
+library(leaflet)
+library(ggplot2)
+source("analysis.R")
+
+```
+
+-------------
+
+## Summary Information
+
+***In the U.S. in 2018, there was  `r shooting_num` cases of massive shooting happened and totally `r total_lost_lives` people lost their lives due to shooting. Most of the shooting were happened in `r most_shooting_state`. `r most_shooting_city` is the city that had the most shooting; `r most_impacted_city` was the most impacted city. Moreover, most shootings happened in `r most_shooting_month`.***
+
+------------------
+
+## Summary Table
+
+
+```{r echo = FALSE, results='asis'}
+
+kable(aggregate_table)
+```
+
+**This table indicates how many cases of shooting in each month in 2018, that shows us most shooting were happened in june which also was the month that caused most people died or injured.**
+
+-----------------------
+
+## Description Of A Particular Incident
+
+**The most serious shooting case happened in `r most_serious_date` at `r most_serious_city`, `r most_serious_state`. This massive shooting caused `r most_serious_impact` people impacted, whether injured or lost their lives.**
+
+**[Wiki page of 2018 Florida school shooting case](https://en.wikipedia.org/wiki/Stoneman_Douglas_High_School_shooting)**
+
+------------------------
+
+## An Interactive Map
+
+
+```{r}
+
+shooting_map
+```
+
+**This interactive map shows that most of the shootings happened in urban area, and most of the cases were located along shorelines.**
+
+------------------
+
+## A Plot Of Your Choice
+
+**Is there a correlation between months and shootings?**
+
+```{r}
+
+geom_col_plot
+```
+
+**Defense : As what the chart shows, In July and June, likely to be considered as the hottest months of a year, have a larger number of shootings happened. It is very certain that shooting cases has some sort of relationship between temperature of the month and shooting case.**
+
+**In Colder months, such as December, January, and February, There was less shooting happened.**
+
+**In warmmer or hotter months, shootings were likely to happened more than colder months.**
+
+
+---------------------
+
+## Critical reflection
+
+**Though Systems of Crime Prediction indeed leads to certain crime rate fall, but it has a price of taking away certain people's rights. Moreover, such system caused police officers tend to arrest more people than usual. Is there a problem to use privacy to change a safer environment?**
+
+>The result is that we criminalize poverty, believing all the while that our tools are not only scientific but fair. - Kathy O'Neil
+
+
+
+
+
+
